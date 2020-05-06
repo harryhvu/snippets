@@ -1,0 +1,30 @@
+# Create dataframe from list of lists
+  data = [list of lists]
+  df = pd.DataFrame(data)
+
+# Filter - out empty fields in a specific column
+  combined_df = combined_df[combined_df.{column_name}.notnull()]
+
+# Filter - Drop rows based on list of strings
+  df = df[~df['your column'].isin(['list of strings'])]
+
+# Split 1 column into 2 and append the 2 new columns to the dataframe
+  df[['First','Last']] = df.Name.str.split("_",expand=True) 
+
+# Filter - Keep rows with a certain value e.g 2299 or you can use != instead of == to filter out 2299
+  combined_df = combined_df[combined_df.End_Date_Year == 2299]
+
+# Get number of rows in dataframe
+  len(combined_df.index)
+
+# Get list of unique values in a column
+  df_name_here.column_name_here.unique()
+
+# Export dataframe to excel
+  final_df.to_excel('final_df.xlsx')
+
+# Get first or last row of dataframe (can replace tail with head)
+  pd.concat([df.head(1), df.tail(1)])
+
+# Sort df by a values in a specific column (eg 'Effective_Date')
+  df_by_price_type = df_by_price_type.sort_values(by='Effective_Date')
