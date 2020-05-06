@@ -32,15 +32,19 @@ df = df[~df['your column'].isin(['list of strings'])]
 Filter - Keep rows with a certain value e.g 2299 or you can use != to filter out 2299
 combined_df = combined_df[combined_df.End_Date_Year == 2299]
 
+Drop empty columns or rows
+df = df.dropna(axis=0,how='all')
+- pass 0 for rows and 1 for columns in 'axis'
+
 ### Sort
  df_by_price_type = df_by_price_type.sort_values(by='Effective_Date')
+ 
+### Concatenate dfs
+pd.concat(list_of_dfs)
 
 ### Split Columns
 Split 1 column into 2 and add the 2 new columns to the dataframe
 df[['First','Last']] = df.Name.str.split("_",expand=True) 
-
-### Get number of rows in dataframe
-(len(combined_df.index))
 
 ### Get list of unique values in a column
 df_name_here.column_name_here.unique()
@@ -51,3 +55,14 @@ final_df.to_excel('final_df.xlsx')
 
 ### Get first or last row of dataframe (can replace tail with head)
 pd.concat([df.head(1), df.tail(1)])
+
+### Get info about dataframe
+Shape - returns (#,#)
+`df.shape`
+
+Number of columns
+`columns_count = len(df.columns)`
+
+Get number of rows in dataframe
+`len(combined_df.index)`
+
