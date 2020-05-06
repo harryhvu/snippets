@@ -24,13 +24,13 @@ df['col_name2'] = list_variable
 
 ### Filtering
 Filter - out empty fields where 'End Date' is column name
-combined_df = combined_df[combined_df.End_Date.notnull()]
+`combined_df = combined_df[combined_df.End_Date.notnull()]`
 
 Filter - Drop rows based on list of strings
-df = df[~df['your column'].isin(['list of strings'])]
+`df = df[~df['your column'].isin(['list of strings'])]`
 
 Filter - Keep rows with a certain value e.g 2299 or you can use != to filter out 2299
-combined_df = combined_df[combined_df.End_Date_Year == 2299]
+`combined_df = combined_df[combined_df.End_Date_Year == 2299]`
 
 Drop empty columns or rows
 df = df.dropna(axis=0,how='all')
@@ -51,6 +51,7 @@ df_name_here.column_name_here.unique()
 
 ### Exporting 
 dataframe to excel
+import openpyxl
 final_df.to_excel('final_df.xlsx')
 
 ### Get first or last row of dataframe (can replace tail with head)
