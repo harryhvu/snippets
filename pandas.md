@@ -1,4 +1,9 @@
 ### Creating DataFrames
+From excel
+```
+df = pd.read_excel('file.xlsx')
+```
+
 From list of lists where each list is a ROW
 ```
 data = list of lists
