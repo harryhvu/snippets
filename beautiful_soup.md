@@ -11,3 +11,16 @@ Find by tag name
 
 ### Find tags with specific attribute (eg class) and value ('subheading')
 `h1 = soup.find('h1',attrs={'class':'subheading'})`
+
+### Get value of attribute (eg 'href') inside HTML element (eg '<a>')
+```
+atags = soup.find_all('a')
+for atag in atags:
+  url = atag['href']
+ ```
+  
+### Find element with specific string inside
+if 'string' in str(soup_object):
+  do this
+
+  
