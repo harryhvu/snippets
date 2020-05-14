@@ -27,3 +27,9 @@ with open('sections.txt','r') as file:
 from datetime import date
 today = date.today()
 ```
+
+## Flatten a list of lists
+non_flat is the list of lists
+x is each sublist in the list of lists
+` flat_list = [y for x in non_flat for y in x] `
+
