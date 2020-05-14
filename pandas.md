@@ -72,3 +72,36 @@ Number of columns
 Get number of rows in dataframe
 `len(combined_df.index)`
 
+Pandas - add to github snippets
+### Rename column
+df.rename({'col_name':'new_col_name'})
+
+### reset index
+df.reset_index(drop=True)
+
+### Convert strings to numbers (if col has correct data type eg not a combo of strings and numbers)
+df.astype({'col_name':'float'}).dtypes
+
+### Fill in non-numerical values with 'NaN'
+pd.to_numeric(df.col_name, errors='coerce')
+### fill 'NaN' with zeros instead
+pd.to_numeric(df.col_name, errors='coerce').fillna(0)
+
+### Reduce dataframe size when reading
+cols = [ list of column names you want to read ]
+df = pd.read_csv(data, usecols=cols)
+
+### Specify data type before reading
+dtypes = {'col name': 'category'}
+
+### build a dataframe from multiple files ROW WISE(eg multiple spreadsheets)
+from glob import glob
+files = sorted(glob('data/stocks*.csv')) 
+- looks for csv files starting with 'stocks' in the 'data' subdirectory
+returns list of file names that are sorted
+
+### Create df from clipboard
+df = pd.read_clipboard()
+pd.concat((pd.read_csv(file) for file in files), ignore_index=True)
+
+
