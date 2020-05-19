@@ -1,5 +1,5 @@
 ### Creating DataFrames
-From html
+From html (make sure variable is string)
 `pd.read_html(html_snippet_variable)`
 
 From excel
