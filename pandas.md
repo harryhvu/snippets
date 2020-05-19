@@ -1,4 +1,7 @@
 ### Creating DataFrames
+From html
+`pd.read_html(html_snippet_variable)`
+
 From excel
 ```
 df = pd.read_excel('file.xlsx')
