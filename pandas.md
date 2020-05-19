@@ -1,6 +1,9 @@
 ### Creating DataFrames
 From html (make sure variable is string)
-`pd.read_html(html_snippet_variable)`
+```
+table = soup.find_all('table')
+df = pd.read_html(str(table))[0]
+```
 
 From excel
 ```
@@ -39,6 +42,11 @@ Filter - Drop rows based on list of strings
 
 Filter - Keep rows with a certain value e.g 2299 or you can use != to filter out 2299
 `combined_df = combined_df[combined_df.End_Date_Year == 2299]`
+
+Keep rows with specific string
+```
+df_rld = df[df['col_name'].str.contains('string_here')]
+```
 
 Drop empty columns or rows
 df = df.dropna(axis=0,how='all')
