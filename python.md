@@ -33,3 +33,12 @@ non_flat is the list of lists
 x is each sublist in the list of lists
 ` flat_list = [y for x in non_flat for y in x] `
 
+## .replace() with multiple characters
+```
+a_string = "breads"
+remove_characters = ["e", "s"]
+
+for character in remove_characters:
+    a_string = a_string.replace(character, "")
+```
+
