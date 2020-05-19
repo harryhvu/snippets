@@ -48,19 +48,25 @@ df = df.dropna(axis=0,how='all')
 pd.concat(list_of_dfs)
 
 ### Split Columns
+```
 Split 1 column into 2 and add the 2 new columns to the dataframe
-df[['First','Last']] = df.Name.str.split("_",expand=True) 
+df[['First','Last']] = df.Name.str.split("_",expand=True)
+```
 
 ### Get list of unique values in a column
 df_name_here.column_name_here.unique()
 
-### Exporting 
+### Exporting
+```
 dataframe to excel
 import openpyxl
 final_df.to_excel('final_df.xlsx')
+```
 
 ### Get first or last row of dataframe (can replace tail with head)
+```
 pd.concat([df.head(1), df.tail(1)])
+```
 
 ### Get info about dataframe
 Shape - returns (#,#)
