@@ -1,5 +1,5 @@
 ### Dependencies
-import openpyxl
+`import openpyxl`
 
 ### Creating DataFrames
 From html (make sure variable is string)
@@ -113,6 +113,11 @@ Shape - returns (#,#)
 
 ##Changing Data
 
+### Convert strings to datetimes in a column
+`df['col nam'] = pd.to_datetime(df['col name'])`
+or
+`pd.to_datetime(pd.Series(['05/23/2005']), format="%m/%d/%Y")`
+
 ### Fill in non-numerical values with 'NaN'
 `pd.to_numeric(df.col_name, errors='coerce')`
 
@@ -128,5 +133,16 @@ dtypes = {'col name': 'category'}
 
 ### Convert strings to numbers (if col has correct data type eg not a combo of strings and numbers)
 `df.astype({'col_name':'float'}).dtypes`
+
+### Add values across rows from specific columns and create a new column with a total
+`df['Total'] = df['col val 1'] + df['col val 2']`
+
+## Selecting Data
+[row_num,column_num], colon (:) gives all rows
+```
+df.iloc[1,2]
+df.iloc[:,0]
+```
+
 
 
