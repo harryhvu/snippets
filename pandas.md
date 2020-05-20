@@ -48,6 +48,7 @@ From clipboard
 ```
 df = pd.read_clipboard()
 pd.concat((pd.read_csv(file) for file in files), ignore_index=True)
+```
 
 ### Filtering
 Filter - out empty fields where 'End Date' is column name
@@ -65,14 +66,16 @@ df_rld = df[df['col_name'].str.contains('string_here')]
 ```
 
 Drop empty columns or rows
+```
 df = df.dropna(axis=0,how='all')
+```
 - pass 0 for rows and 1 for columns in 'axis'
 
 ### Sort
- df_by_price_type = df_by_price_type.sort_values(by='Effective_Date')
+` df_by_price_type = df_by_price_type.sort_values(by='Effective_Date')`
  
 ### Concatenate dfs
-pd.concat(list_of_dfs)
+`pd.concat(list_of_dfs)`
 
 ### Split Columns
 ```
@@ -81,7 +84,7 @@ df[['First','Last']] = df.Name.str.split("_",expand=True)
 ```
 
 ### Get list of unique values in a column
-df_name_here.column_name_here.unique()
+`df_name_here.column_name_here.unique()`
 
 ### Exporting
 ```
@@ -122,14 +125,16 @@ or
 `pd.to_numeric(df.col_name, errors='coerce')`
 
 ### Fill 'NaN' with zeros instead
-pd.to_numeric(df.col_name, errors='coerce').fillna(0)
+`pd.to_numeric(df.col_name, errors='coerce').fillna(0)`
 
 ### Reduce dataframe size when reading
+```
 cols = [ list of column names you want to read ]
 df = pd.read_csv(data, usecols=cols)
+```
 
 ### Specify data type before reading
-dtypes = {'col name': 'category'}
+`dtypes = {'col name': 'category'}`
 
 ### Convert strings to numbers (if col has correct data type eg not a combo of strings and numbers)
 `df.astype({'col_name':'float'}).dtypes`
