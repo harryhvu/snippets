@@ -8,7 +8,7 @@ table = soup.find_all('table')
 df = pd.read_html(str(table))[0]
 ```
 
-##From excel
+From excel
 ```
 df = pd.read_excel('file.xlsx')
 ```
@@ -52,17 +52,28 @@ pd.concat((pd.read_csv(file) for file in files), ignore_index=True)
 
 ### Filtering
 Filter - out empty fields where 'End Date' is column name
-`combined_df = combined_df[combined_df.End_Date.notnull()]`
+```
+combined_df = combined_df[combined_df.End_Date.notnull()]
+```
 
 Filter - Drop rows based on list of strings
-`df = df[~df['your column'].isin(['list of strings'])]`
+```
+df = df[~df['your column'].isin(['list of strings'])]```
 
 Filter - Keep rows with a certain value e.g 2299 or you can use != to filter out 2299
-`combined_df = combined_df[combined_df.End_Date_Year == 2299]`
+```
+combined_df = combined_df[combined_df.End_Date_Year == 2299]
+```
 
 Keep rows with specific string
 ```
 df_rld = df[df['col_name'].str.contains('string_here')]
+```
+
+Multiple filters and Keep rows with specific value or string
+Use & for multiple filters
+```
+new_df = df.loc[(df['Type'] == 'value here'] & (df['Column 2'] > 1234)]
 ```
 
 Drop empty columns or rows
@@ -70,6 +81,7 @@ Drop empty columns or rows
 df = df.dropna(axis=0,how='all')
 ```
 - pass 0 for rows and 1 for columns in 'axis'
+
 
 ### Sort
 ` df_by_price_type = df_by_price_type.sort_values(by='Effective_Date')`
