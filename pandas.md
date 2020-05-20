@@ -58,7 +58,8 @@ combined_df = combined_df[combined_df.End_Date.notnull()]
 
 Filter - Drop rows based on list of strings
 ```
-df = df[~df['your column'].isin(['list of strings'])]```
+df = df[~df['your column'].isin(['list of strings'])]
+```
 
 Filter - Keep rows with a certain value e.g 2299 or you can use != to filter out 2299
 ```
