@@ -97,7 +97,7 @@ df[['First','Last']] = df.Name.str.split("_",expand=True)
 ```
 
 ### Get list of unique values in a column
-`df_name_here.column_name_here.unique()`
+`df_name_here['col name'].unique()`
 
 ### Exporting
 ```
@@ -129,6 +129,22 @@ Shape - returns (#,#)
 
 ##Changing Data
 
+Adding new column/data based on conditional (contains a string)
+```
+    #dmd_key_words = ['DMD','duchenne','muscular','dystrophy'] # option 1
+    #pattern = '|'.join(dmd_key_words)
+    #df['Subject'] = df['Body'].str.contains(pattern) #returns True/False/NaN
+```
+```
+    df.loc[df['Body'].str.contains('DMD|duchenne|muscular|dystrophy|duchennes'), 'DMD'] = 'True' # option 2 returns a customized value
+    df.loc[df['Body'].str.contains('diabetes|dm|t2dm|diabetic'), 'DM'] = 'False'
+ ```
+
+Adding a new column
+```
+df['new col'] = list of values
+```
+
 ### Convert strings to datetimes in a column
 `df['col nam'] = pd.to_datetime(df['col name'])`
 or
@@ -156,11 +172,22 @@ df = pd.read_csv(data, usecols=cols)
 `df['Total'] = df['col val 1'] + df['col val 2']`
 
 ## Selecting Data
+.iloc
 [row_num,column_num], colon (:) gives all rows
 ```
 df.iloc[1,2]
 df.iloc[:,0]
 ```
+
+.loc
+```
+for i in range(len(df)) : 
+  print(df.loc[i, "Name"], df.loc[i, "Age"])
+```
+- note that i is the row number (similar to .iloc)
+
+
+
 
 
 
