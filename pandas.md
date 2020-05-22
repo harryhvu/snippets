@@ -127,7 +127,7 @@ Shape - returns (#,#)
 ### Reset index
 `df.reset_index(drop=True)`
 
-##Changing Data
+## Changing Data
 
 Adding new column/data based on conditional (contains a string)
 ```
@@ -144,6 +144,12 @@ Adding a new column
 ```
 df['new col'] = list of values
 ```
+
+Mapping - Create a new column if another column has dictionary key, return dictionary value
+```
+openfda_df['Indexed RLD'] = openfda_df['Application No.'].map(rld_dict)
+```
+- .map(dictionary_here)
 
 ### Convert strings to datetimes in a column
 `df['col nam'] = pd.to_datetime(df['col name'])`
@@ -164,6 +170,11 @@ df = pd.read_csv(data, usecols=cols)
 
 ### Specify data type before reading
 `dtypes = {'col name': 'category'}`
+
+### Change data type for a column
+```
+df['Application No.'] = pd.to_numeric(df['Application No.'])
+```
 
 ### Convert strings to numbers (if col has correct data type eg not a combo of strings and numbers)
 `df.astype({'col_name':'float'}).dtypes`
