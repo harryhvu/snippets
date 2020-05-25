@@ -203,6 +203,18 @@ for i in range(len(df)) :
 ```
 - note that i is the row number (similar to .iloc)
 
+### Analysis
+
+Get descriptive statistics (eg min, max, mean, std, etc)
+```
+df['column_name'].describe()
+```
+
+Count occurences of each value in a column
+```
+df['column'].count_values()
+```
+
 
 
 
