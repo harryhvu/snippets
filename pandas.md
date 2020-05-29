@@ -215,6 +215,9 @@ Count occurences of each value in a column
 df['column'].value_counts()
 ```
 
+### Get Descriptive Statistics
+`df.describe()`
+
 
 
 
