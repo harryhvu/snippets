@@ -212,7 +212,7 @@ df['column_name'].describe()
 
 Count occurences of each value in a column
 ```
-df['column'].count_values()
+df['column'].value_counts()
 ```
 
 
