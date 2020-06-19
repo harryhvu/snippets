@@ -91,8 +91,6 @@ df = df.dropna(axis=0,how='all')
 ### Sort
 ` df_by_price_type = df_by_price_type.sort_values(by='Effective_Date')`
  
-### Concatenate DataFrames
-`pd.concat(list_of_dfs)`
 
 ### Split Columns
 ```
@@ -115,7 +113,7 @@ final_df.to_excel('final_df.xlsx')
 pd.concat([df.head(1), df.tail(1)])
 ```
 
-### Get info about DataFrame
+### Dataframe Metadata
 Shape - returns (#,#)
 ```
 df.shape
