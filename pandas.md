@@ -220,7 +220,13 @@ df['column'].value_counts()
 ### Get Descriptive Statistics
 `df.describe()`
 
-
+### Resampling
+```
+df = df['col_to_aggregate'].resample('Q').mean()
+```
+- you need the name of the column that will be aggregated, the "frequency string" (e.g. Q), and the aggregating method (e.g. mean() )
+- you also have to convert the datetime column to datetime objects?
+- also set your datetime column as the index
 
 
 
