@@ -2,6 +2,11 @@
 `import openpyxl`
 
 ### Creating DataFrames
+From Fixed Width File in .txt format (FWF)
+```
+df = pd.read_fwf('filename.txt')
+```
+
 From html (make sure variable is string)
 ```
 table = soup.find_all('table')
