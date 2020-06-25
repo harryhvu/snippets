@@ -8,11 +8,6 @@ table = soup.find_all('table')
 df = pd.read_html(str(table))[0]
 ```
 
-From excel
-```
-df = pd.read_excel('file.xlsx')
-```
-
 From list of lists where each list is a ROW
 ```
 data = list of lists
@@ -88,7 +83,7 @@ df = df.dropna(axis=0,how='all')
 - pass 0 for rows and 1 for columns in 'axis'
 
 
-### Sort
+### Sorting
 ` df_by_price_type = df_by_price_type.sort_values(by='Effective_Date')`
  
 
@@ -220,13 +215,24 @@ df['column'].value_counts()
 ### Get Descriptive Statistics
 `df.describe()`
 
-### Resampling
+### Resampling A Column
 ```
 df = df['col_to_aggregate'].resample('Q').mean()
 ```
 - you need the name of the column that will be aggregated, the "frequency string" (e.g. Q), and the aggregating method (e.g. mean() )
 - you also have to convert the datetime column to datetime objects?
 - also set your datetime column as the index
+
+
+### Resampling a Data Frame with Different Aggregation Functions
+```
+def claims_test_resample_df(df):
+    df['Hdr Fdos'] = pd.to_datetime(df['Hdr Fdos'])
+    df = df.set_index(df['Hdr Fdos'])
+    df = df.resample('A').agg({'Num Icn':'count','Amt Paid Final':'sum'}) # how to aggregate different columns with diff aggregation functions
+
+    return df
+```
 
 
 
