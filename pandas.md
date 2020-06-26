@@ -51,7 +51,7 @@ pd.concat((pd.read_csv(file) for file in files), ignore_index=True)
 ```
 
 ### Filtering
-Filter - out empty fields where 'End Date' is column name
+Filter Out NaN Values
 ```
 combined_df = combined_df[combined_df.End_Date.notnull()]
 ```
@@ -60,10 +60,7 @@ Filter - keep rows based on list of strings
 ```
 df = df[df['your column'].isin(['list of strings'])]
 ```
-or use ~ if you want to drop rows
-```
-df = df[df['your column'].isin(['list of strings'])]
-```
+- or use ~ if you want to drop rows
 
 Filter - Keep rows with a certain value e.g 2299 or you can use != to filter out 2299
 ```
@@ -87,6 +84,13 @@ df = df.dropna(axis=0,how='all')
 ```
 - pass 0 for rows and 1 for columns in 'axis'
 
+### Indexing by a Datetime Column
+- First set index to a column with datetime objects
+- Then reference using something like `df['2019']`
+```
+df.set_index(df['Dates'])
+df['2019']
+```
 
 ### Sorting
 ` df_by_price_type = df_by_price_type.sort_values(by='Effective_Date')`
@@ -101,12 +105,6 @@ df[['First','Last']] = df.Name.str.split("_",expand=True)
 ### Get list of unique values in a column
 `df_name_here['col name'].unique()`
 
-### Exporting
-```
-dataframe to excel
-import openpyxl
-final_df.to_excel('final_df.xlsx')
-```
 
 ### Get first or last row of dataframe (can replace tail with head)
 ```
