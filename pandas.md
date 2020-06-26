@@ -217,6 +217,13 @@ Count occurences of each value in a column
 df['column'].value_counts()
 ```
 
+Count unique values
+```
+def beneficaries_bystc(df):
+    df = df.groupby('Dsc_thera_cls_spec')[['Recip ID']].nunique()
+
+    return df
+```
 ### Get Descriptive Statistics
 `df.describe()`
 
