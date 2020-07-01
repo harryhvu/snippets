@@ -116,7 +116,7 @@ df[['First','Last']] = df.Name.str.split("_",expand=True)
 pd.concat([df.head(1), df.tail(1)])
 ```
 
-### Dataframe Metadata
+### Dataframe Metadata, Labeling Columns, Indexes
 Shape - returns (#,#)
 ```
 df.shape
@@ -132,13 +132,17 @@ Get number of rows in dataframe
 len(combined_df.index)
 ```
 
-### Rename column
-`df.rename({'col_name':'new_col_name'})`
+Rename column
+```
+df.rename({'col_name':'new_col_name'})
+```
 
-### Reset index
-`df.reset_index(drop=True)`
+Reset index
+```
+df.reset_index(drop=True)
+```
 
-## Changing Data
+## Adding Data
 
 Adding new column/data based on conditional (contains a string)
 ```
@@ -180,7 +184,9 @@ df = pd.read_csv(data, usecols=cols)
 ```
 
 ### Specify data type before reading
-`dtypes = {'col name': 'category'}`
+```
+df.read_csv('filename.csv', dtype = {'col name': 'category'})
+```
 
 ### Change data type for a column
 ```
