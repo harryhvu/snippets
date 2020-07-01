@@ -51,6 +51,12 @@ pd.concat((pd.read_csv(file) for file in files), ignore_index=True)
 ```
 
 ### Filtering
+Filtering using `.loc`
+```
+df = df.loc[(df['column name'] == 'value')]
+```
+- You can use multiple filters in one line by separating the filters in parentheses with '&'
+
 Filter Out NaN Values
 ```
 combined_df = combined_df[combined_df.End_Date.notnull()]
@@ -62,20 +68,10 @@ df = df[df['your column'].isin(['list of strings'])]
 ```
 - or use ~ if you want to drop rows
 
-Filter - Keep rows with a certain value e.g 2299 or you can use != to filter out 2299
-```
-combined_df = combined_df[combined_df.End_Date_Year == 2299]
-```
 
 Keep rows with specific string
 ```
 df_rld = df[df['col_name'].str.contains('string_here')]
-```
-
-Multiple filters and Keep rows with specific value or string
-Use & for multiple filters
-```
-new_df = df.loc[(df['Type'] == 'value here'] & (df['Column 2'] > 1234)]
 ```
 
 Drop empty columns or rows
@@ -203,12 +199,13 @@ for i in range(len(df)) :
 ```
 - note that i is the row number (similar to .iloc)
 
-### Analysis
+## Descriptive Statistics and Aggregation
 
 Get descriptive statistics (eg min, max, mean, std, etc)
 ```
 df['column_name'].describe()
 ```
+- you can also use the describe method on the entire dataframe with `df.describe(include='all')`
 
 Count occurences of each value in a column
 ```
@@ -222,10 +219,10 @@ def beneficaries_bystc(df):
 
     return df
 ```
-### Get Descriptive Statistics
+Get Descriptive Statistics
 `df.describe()`
 
-### Resampling A Column
+Resampling A Column
 ```
 df = df['col_to_aggregate'].resample('Q').mean()
 ```
@@ -234,7 +231,7 @@ df = df['col_to_aggregate'].resample('Q').mean()
 - also set your datetime column as the index
 
 
-### Resampling a Data Frame with Different Aggregation Functions
+Resampling a Data Frame with Different Aggregation Functions
 ```
 def claims_test_resample_df(df):
     df['Hdr Fdos'] = pd.to_datetime(df['Hdr Fdos'])
@@ -242,6 +239,7 @@ def claims_test_resample_df(df):
     df = df.resample('A').agg({'Num Icn':'count','Amt Paid Final':'sum'}) # how to aggregate different columns with diff aggregation functions
 
     return df
+    
 ```
 
 
