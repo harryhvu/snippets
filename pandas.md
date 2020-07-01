@@ -1,6 +1,15 @@
 ### Dependencies
 `import openpyxl`
 
+### Data Types
+- object
+- int64
+- float64
+- bool
+- datetime64
+- timedelta[ns]
+- category
+
 ### Creating DataFrames
 From Fixed Width File in .txt format (FWF)
 ```
