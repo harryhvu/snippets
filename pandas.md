@@ -53,11 +53,6 @@ files = sorted(glob('data/stocks*.csv'))
 - looks for csv files starting with 'stocks' in the 'data' subdirectory
 returns list of file names that are sorted
 
-From clipboard
-```
-df = pd.read_clipboard()
-pd.concat((pd.read_csv(file) for file in files), ignore_index=True)
-```
 
 ### Filtering
 Filtering using `.loc`
@@ -155,9 +150,14 @@ Adding new column/data based on conditional (contains a string)
     df.loc[df['Body'].str.contains('diabetes|dm|t2dm|diabetic'), 'DM'] = 'False'
  ```
 
-Adding a new column
+Assign list of values to a column
 ```
 df['new col'] = list of values
+```
+
+Merge strings across columns in a row
+```
+df['new col'] = df['colA'] + df['colB']
 ```
 
 Mapping - Create a new column if another column has dictionary key, return dictionary value
@@ -257,6 +257,24 @@ def claims_test_resample_df(df):
     
 ```
 
+Get the minimum value across rows (axis=0) or columns (axis=1)
+```
+df.min(axis=1
+```
+
+Get the minimum value column label across rows (axis=0) or columns (axis=1)
+```
+df.idxmin(axis=1)
+```
+
+### Lambda and custom functions
+
+Assign value to new column from value in another column using anonymous lambda function or custom function
+```
+df['newcol'] = df['oldcol'].apply(lambda x: myfunction(x))
+or
+df['newcol'] = df['oldcol'].apply(lambda x: x-1)
+```
 
 
 
