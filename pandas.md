@@ -237,7 +237,7 @@ def beneficaries_bystc(df):
 Get Descriptive Statistics
 `df.describe()`
 
-Resampling A Column
+Resampling A Column (in other words, grouping data by time)
 ```
 df = df['col_to_aggregate'].resample('Q').mean()
 ```
@@ -255,6 +255,11 @@ def claims_test_resample_df(df):
 
     return df
     
+```
+
+Aggregate data with different aggregation methods for each column
+```
+df.groupby('A').agg({'B': ['min', 'max'], 'C': 'sum'})
 ```
 
 Get the minimum value across rows (axis=0) or columns (axis=1)
