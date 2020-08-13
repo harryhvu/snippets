@@ -281,5 +281,12 @@ or
 df['newcol'] = df['oldcol'].apply(lambda x: x-1)
 ```
 
+## Miscellaneous
+Replacing values in a column (e.g. replacing 0 with NaN)
+```
+reference_cod_smac['smac'] = reference_cod_smac['smac'].replace(0,np.NaN)
+```
+
+
 
 
