@@ -222,6 +222,15 @@ for i in range(len(df)) :
 
 ## Descriptive Statistics and Aggregation
 
+Using .groupby() and then .resample()
+```
+def summary_grpbydrug_resample(df):
+    df = df.groupby('Nam_drug').resample('A-JUN').agg({'Amt Paid Final':'sum','Num Icn':'count','Recip ID':'nunique'})
+
+    return df
+```
+- .resample() can be called after .groupby()
+
 Get descriptive statistics (eg min, max, mean, std, etc)
 ```
 df['column_name'].describe()
