@@ -96,12 +96,6 @@ df['2019']
 ` df_by_price_type = df_by_price_type.sort_values(by='Effective_Date')`
  
 
-### Split Columns
-```
-Split 1 column into 2 and add the 2 new columns to the dataframe
-df[['First','Last']] = df.Name.str.split("_",expand=True)
-```
-
 ### Get list of unique values in a column
 `df_name_here['col name'].unique()`
 
@@ -137,7 +131,7 @@ Reset index
 df.reset_index(drop=True)
 ```
 
-## Adding Data
+## Adding Data or Columns
 
 Adding new column/data based on conditional (contains a string)
 ```
@@ -149,10 +143,22 @@ Adding new column/data based on conditional (contains a string)
     df.loc[df['Body'].str.contains('DMD|duchenne|muscular|dystrophy|duchennes'), 'DMD'] = 'True' # option 2 returns a customized value
     df.loc[df['Body'].str.contains('diabetes|dm|t2dm|diabetic'), 'DM'] = 'False'
  ```
+ 
+Split 1 column and create 2 new ones from it
+```
+Split 1 column into 2 and add the 2 new columns to the dataframe
+df[['First','Last']] = df.Name.str.split("_",expand=True)
+```
+
+Creating a new column with df.assign()
+```
+Split 1 column into 2 and add the 2 new columns to the dataframe
+df[['First','Last']] = df.Name.str.split("_",expand=True)
+```
 
 Assign list of values to a column
 ```
-df['new col'] = list of values
+df = df.assign(columnamehere=lambdafunctionorvalue)
 ```
 
 Merge strings across columns in a row
