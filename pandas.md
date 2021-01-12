@@ -11,6 +11,25 @@
 - category
 
 ### Creating DataFrames
+From objects/dictionaries
+
+```
+class Signal(object):
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def to_dict(self):
+        return {
+            'x': self.x,
+            'y': self.y,
+        }
+        
+signals = [Signal(3, 9), Signal(4, 16)]
+
+pandas.DataFrame.from_records([s.to_dict() for s in signals])
+```
+
 From Fixed Width File in .txt format (FWF)
 ```
 df = pd.read_fwf('filename.txt')
