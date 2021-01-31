@@ -1,5 +1,8 @@
 # References
 
+### GitHub Basics
+https://www.google.com/amp/s/www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/amp/
+
 ### Cloning Projects
 https://stackoverflow.com/questions/60719286/actions-for-creating-venv-in-python-and-clone-a-git-repo
 
