@@ -219,6 +219,7 @@ df['Application No.'] = pd.to_numeric(df['Application No.'])
 ```
 
 ### Convert strings to numbers (if col has correct data type eg not a combo of strings and numbers)
+## Can also use with 'category' to convert float to string
 `df.astype({'col_name':'float'}).dtypes`
 
 ### Add values across rows from specific columns and create a new column with a total
