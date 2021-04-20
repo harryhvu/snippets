@@ -41,4 +41,6 @@ remove_characters = ["e", "s"]
 for character in remove_characters:
     a_string = a_string.replace(character, "")
 ```
+## Iterate over files in a directory
+https://stackoverflow.com/questions/10377998/how-can-i-iterate-over-files-in-a-given-directory
 
